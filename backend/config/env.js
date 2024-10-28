@@ -3,7 +3,7 @@ const config = {
     port: 4000,
   },
   mongo: {
-    connectionString: "mongodb://localhost:27017/",
+    url: "mongodb://localhost:27017/",
     dataBase: "connect",
   },
 };
