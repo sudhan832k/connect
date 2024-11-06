@@ -1,4 +1,4 @@
-const { init } = require("./config/app/server");
+const { init } = require("./app/server");
 const { config } = require("./config/env");
 init().then((app) => {
   app.listen(config.app.port, (error) => {

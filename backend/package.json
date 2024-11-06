@@ -10,8 +10,15 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "body-parser": "^1.20.3",
+    "cors": "^2.8.5",
     "express": "^4.21.1",
     "mongoose": "^8.7.2",
     "nodemon": "^3.1.7"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.14.0",
+    "eslint": "^9.14.0",
+    "globals": "^14.0.0"
   }
 }

@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 const { config } = require("../config/env");
-const User = require("../model/user");
+// const User = require("../model/user");
 
 module.exports.createMongoConnection = () => {
   const url = `${config.mongo.url}${config.mongo.dataBase}`;

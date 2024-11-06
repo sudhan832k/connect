@@ -24,9 +24,6 @@ const userSchema = mongoose.Schema({
   pendingApproval: {
     type: [mongoose.Schema.Types.ObjectId],
   },
-  friends: {
-    type: [mongoose.Schema.Types.ObjectId],
-  },
   status: {
     type: String,
     required: true,
