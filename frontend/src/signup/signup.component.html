@@ -14,13 +14,66 @@
       <label class="inputLabel">Enter your full name</label>&nbsp;
       <input type="text" formControlName="userName" /><br />
     </div>
+    <div
+      class="error"
+      *ngIf="
+        signupFrom.controls['userName'].touched &&
+        signupFrom.controls['userName'].invalid
+      "
+    >
+      Name is mantatory.
+    </div>
     <div class="formControl">
       <label class="inputLabel">Enter your contact number</label>&nbsp;
       <input type="text" formControlName="userContactNumber" /><br />
     </div>
+    <div
+      class="error"
+      *ngIf="
+        signupFrom.controls['userContactNumber'].touched &&
+        signupFrom.controls['userContactNumber'].invalid
+      "
+    >
+      <span
+        *ngIf="
+          signupFrom.controls['userContactNumber'].errors?.['required']
+        "
+      >
+        Contact number is mantatory.</span
+      >
+      <span
+        *ngIf="
+        signupFrom.controls['userContactNumber'].errors?.['pattern']
+      "
+      >
+        Must be a 10-digit number.</span
+      >
+    </div>
     <div class="formControl">
       <label class="inputLabel">Create a password</label>&nbsp;
       <input type="password" formControlName="userPassword" /><br />
+    </div>
+    <div
+      class="error"
+      *ngIf="
+        signupFrom.controls['userPassword'].touched &&
+        signupFrom.controls['userPassword'].invalid
+      "
+    >
+      <span
+        *ngIf="
+        signupFrom.controls['userPassword'].errors?.['required']
+      "
+      >
+        Password is mantatory.</span
+      >
+      <span
+        *ngIf="
+      signupFrom.controls['userPassword'].errors?.['minlength']
+    "
+      >
+        Atlease your password should contain 8 characters.</span
+      >
     </div>
     <div class="formControl">
       <button

@@ -1,20 +1,30 @@
 import { ReactiveFormsModule } from '@angular/forms';
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-signup',
   standalone: true,
-  imports: [ReactiveFormsModule],
+  imports: [ReactiveFormsModule, CommonModule],
   templateUrl: './signup.component.html',
   styleUrl: './signup.component.scss',
 })
 export class SignupComponent {
-  signupFrom: FormGroup = new FormGroup({
-    userName: new FormControl(null),
-    userPassword: new FormControl(null),
-    userContactNumber: new FormControl(null),
-  });
+  signupFrom: FormGroup;
+  constructor() {
+    this.signupFrom = new FormGroup({
+      userName: new FormControl(null, [Validators.required]),
+      userPassword: new FormControl(null, [
+        Validators.required,
+        Validators.minLength(8),
+      ]),
+      userContactNumber: new FormControl(null, [
+        Validators.required,
+        Validators.pattern(/^\d{10}$/),
+      ]),
+    });
+  }
 
   createUser() {
     const newUser = this.signupFrom.value;
