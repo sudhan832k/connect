@@ -1,0 +1,24 @@
+.form {
+  margin-top: 40px;
+  margin-left: 200px;
+  margin-right: 200px;
+  text-align: center;
+  background-color: #ecf0f1;
+  border: 1px solid #68768a;
+  border-radius: 10px;
+}
+.formControl {
+  padding: 15px;
+}
+.inputLabel {
+  text-align: center;
+  font-family: Helvetica;
+  color: #4a5459;
+  font-size: 18px;
+}
+.error {
+  text-align: center;
+  font-family: Helvetica;
+  color: #e95454;
+  font-size: 14px;
+}

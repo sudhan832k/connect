@@ -1,0 +1,75 @@
+<app-header></app-header>
+<div class="form">
+  <form [formGroup]="loginForm">
+    <br />
+    <label
+      style="
+        margin: 25px;
+        font-family: Helvetica;
+        font-size: 22px;
+        color: #68768a;
+      "
+      >LOGIN</label
+    >
+    <div class="formControl">
+      <label class="inputLabel">Enter your contact number</label>&nbsp;
+      <input type="text" formControlName="userContactNumber" /><br />
+    </div>
+    <div
+      class="error"
+      *ngIf="
+        loginForm.controls['userContactNumber'].touched &&
+        loginForm.controls['userContactNumber'].invalid
+      "
+    >
+      <span
+        *ngIf="
+            loginForm.controls['userContactNumber'].errors?.['required']
+          "
+      >
+        Contact number is mantatory.</span
+      >
+    </div>
+    <div class="formControl">
+      <label class="inputLabel">Enter your password</label>&nbsp;
+      <input type="password" formControlName="userPassword" /><br />
+    </div>
+    <div
+      class="error"
+      *ngIf="
+        loginForm.controls['userPassword'].touched &&
+        loginForm.controls['userPassword'].invalid
+      "
+    >
+      <span
+        *ngIf="
+          loginForm.controls['userPassword'].errors?.['required']
+        "
+      >
+        Password is mantatory.</span
+      >
+    </div>
+    <div class="formControl">
+      <button
+        type="button"
+        class="inputLabel btn-primary"
+        value="Login"
+        (click)="userLogin()"
+      >
+        Login
+      </button>
+    </div>
+    <div style="padding: 15px">
+      <a
+        style="
+          text-align: center;
+          font-family: Helvetica;
+          color: #4a5459;
+          font-size: 14px;
+        "
+        routerLink="/signup"
+        >New user?</a
+      >
+    </div>
+  </form>
+</div>
