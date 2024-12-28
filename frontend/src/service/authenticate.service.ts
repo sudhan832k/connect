@@ -23,6 +23,6 @@ export class AuthenticateService {
     //   'Content-Type': 'application/json',
     //   withCredentials: 'true',
     // });
-    return this.http.post(url, data);
+    return this.http.post(url, data, { withCredentials: true });
   }
 }

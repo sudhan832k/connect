@@ -38,15 +38,17 @@ module.exports.userSignin = async (data) => {
     });
     if (existingUser)
       return {
-        hasError: false,
-        message: `Welcome back ${
-          existingUser.name[0].toUpperCase() +
-          existingUser.name.slice(1).toLowerCase()
-        }`,
+        result: {
+          hasError: false,
+          message: `Welcome back ${
+            existingUser.name[0].toUpperCase() +
+            existingUser.name.slice(1).toLowerCase()
+          }`,
+        },
+        user: existingUser,
       };
     return {
-      hasError: true,
-      message: "Incorrect login credentials.",
+      result: { hasError: true, message: "Incorrect login credentials." },
     };
   } catch (error) {
     error.status ??= 400;
