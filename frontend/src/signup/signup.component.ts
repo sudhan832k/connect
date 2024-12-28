@@ -5,6 +5,7 @@ import { CommonModule } from '@angular/common';
 import { HeaderComponent } from '../header/header.component';
 import { RouterModule } from '@angular/router';
 import { AuthenticateService } from '../service/authenticate.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-signup',
@@ -15,7 +16,10 @@ import { AuthenticateService } from '../service/authenticate.service';
 })
 export class SignupComponent {
   signupFrom: FormGroup;
-  constructor(private authenticateService: AuthenticateService) {
+  constructor(
+    private authenticateService: AuthenticateService,
+    private tosterService: ToastrService
+  ) {
     this.signupFrom = new FormGroup({
       userName: new FormControl(null, [Validators.required]),
       userPassword: new FormControl(null, [
@@ -33,7 +37,9 @@ export class SignupComponent {
     const newUser = this.signupFrom.value;
     const res = this.authenticateService.createNewUser(newUser);
     res.subscribe((res) => {
-      console.log('res', res);
+      res.hasError
+        ? this.tosterService.warning(res.message)
+        : this.tosterService.success(res.message);
     });
   }
 }

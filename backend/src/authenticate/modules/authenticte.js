@@ -10,7 +10,7 @@ module.exports.userSignup = async (data) => {
     if (existingUser)
       return {
         hasError: true,
-        message: "User is already there with this mobile number",
+        message: "Existing user, You can login.",
       };
 
     const newUser = await new User({
