@@ -30,3 +30,24 @@ module.exports.userSignup = async (data) => {
     throw error;
   }
 };
+
+module.exports.userSignin = async (data) => {
+  try {
+    const existingUser = await getUser({
+      contactNumber: data.userContactNumber,
+      password: data.userPassword,
+    });
+    if (existingUser)
+      return {
+        hasError: false,
+        message: "Welcome back",
+      };
+    return {
+      hasError: true,
+      message: "Incorrect login credentials.",
+    };
+  } catch (error) {
+    error.status ??= 400;
+    throw error;
+  }
+};
