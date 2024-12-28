@@ -4,6 +4,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { HeaderComponent } from '../header/header.component';
 import { RouterModule } from '@angular/router';
+import { AuthenticateService } from '../service/authenticate.service';
 
 @Component({
   selector: 'app-signup',
@@ -14,7 +15,7 @@ import { RouterModule } from '@angular/router';
 })
 export class SignupComponent {
   signupFrom: FormGroup;
-  constructor() {
+  constructor(private authenticateService: AuthenticateService) {
     this.signupFrom = new FormGroup({
       userName: new FormControl(null, [Validators.required]),
       userPassword: new FormControl(null, [
@@ -30,6 +31,9 @@ export class SignupComponent {
 
   createUser() {
     const newUser = this.signupFrom.value;
-    console.log('formGroup', this.signupFrom);
+    const res = this.authenticateService.createNewUser(newUser);
+    res.subscribe((res) => {
+      console.log('res', res);
+    });
   }
 }

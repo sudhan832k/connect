@@ -4,7 +4,7 @@ const config = {
   },
   mongo: {
     url: "mongodb://localhost:27017/",
-    dataBase: "connect",
+    dataBase: "connect-main",
   },
 };
 module.exports = { config };

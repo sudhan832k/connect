@@ -3,7 +3,10 @@ const { getUser } = require("../../common/user");
 
 module.exports.userSignup = async (data) => {
   try {
-    const existingUser = await getUser({ contactNumber: data.contactNumber });
+    const existingUser = await getUser({
+      contactNumber: data.userContactNumber,
+    });
+    console.log(existingUser);
     if (existingUser)
       return {
         hasError: true,
@@ -12,8 +15,8 @@ module.exports.userSignup = async (data) => {
 
     const newUser = await new User({
       name: data.userName,
-      contactNumber: data.contactNumber,
-      password: data.password,
+      contactNumber: data.userContactNumber,
+      password: data.userPassword,
       status: "active",
     }).save();
 
