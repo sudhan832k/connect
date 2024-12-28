@@ -81,7 +81,8 @@
         type="button"
         class="inputLabel btn-primary"
         value="Click to register"
-        (click)="createUser()"
+        (click)="userSignup()"
+        [disabled]="signupFrom.invalid"
       >
         Click to register
       </button>

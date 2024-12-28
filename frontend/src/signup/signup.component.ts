@@ -6,6 +6,7 @@ import { HeaderComponent } from '../header/header.component';
 import { RouterModule } from '@angular/router';
 import { AuthenticateService } from '../service/authenticate.service';
 import { ToastrService } from 'ngx-toastr';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-signup',
@@ -18,7 +19,8 @@ export class SignupComponent {
   signupFrom: FormGroup;
   constructor(
     private authenticateService: AuthenticateService,
-    private tosterService: ToastrService
+    private tosterService: ToastrService,
+    private router: Router
   ) {
     this.signupFrom = new FormGroup({
       userName: new FormControl(null, [Validators.required]),
@@ -33,13 +35,15 @@ export class SignupComponent {
     });
   }
 
-  createUser() {
+  userSignup() {
     const newUser = this.signupFrom.value;
-    const res = this.authenticateService.createNewUser(newUser);
+    const res = this.authenticateService.userSignup(newUser);
     res.subscribe((res) => {
-      res.hasError
-        ? this.tosterService.warning(res.message)
-        : this.tosterService.success(res.message);
+      if (res.hasError) this.tosterService.warning(res.message);
+      else {
+        this.tosterService.success(res.message);
+        this.router.navigate(['/login']);
+      }
     });
   }
 }

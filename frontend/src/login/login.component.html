@@ -29,6 +29,13 @@
       >
         Contact number is mantatory.</span
       >
+      <span
+        *ngIf="
+        loginForm.controls['userContactNumber'].errors?.['pattern']
+    "
+      >
+        Must be a 10-digit number.</span
+      >
     </div>
     <div class="formControl">
       <label class="inputLabel">Enter your password</label>&nbsp;
@@ -48,6 +55,13 @@
       >
         Password is mantatory.</span
       >
+      <span
+        *ngIf="
+        loginForm.controls['userPassword'].errors?.['minlength']
+  "
+      >
+        Atleast your password should contain 8 characters.</span
+      >
     </div>
     <div class="formControl">
       <button
@@ -55,6 +69,7 @@
         class="inputLabel btn-primary"
         value="Login"
         (click)="userLogin()"
+        [disabled]="loginForm.invalid"
       >
         Login
       </button>
