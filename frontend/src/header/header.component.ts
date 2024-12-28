@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Config } from '../../env';
+import { config } from '../../env';
 
 @Component({
   selector: 'app-header',
@@ -9,5 +9,5 @@ import { Config } from '../../env';
   styleUrl: './header.component.scss',
 })
 export class HeaderComponent {
-  applicationName: String = Config.app.name;
+  applicationName: String = config.app.name;
 }

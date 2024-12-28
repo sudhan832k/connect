@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { RouterOutlet, RouterModule } from '@angular/router';
-import { Config } from '../../env';
+import { config } from '../../env';
 
 @Component({
   selector: 'app-root',
@@ -11,5 +11,5 @@ import { Config } from '../../env';
   styleUrl: './app.component.scss',
 })
 export class AppComponent {
-  title = Config.app.name;
+  title = config.app.name;
 }
