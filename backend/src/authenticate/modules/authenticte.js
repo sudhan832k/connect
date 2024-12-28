@@ -39,13 +39,14 @@ module.exports.userSignin = async (data) => {
     if (existingUser)
       return {
         hasError: false,
-        message: "Welcome back",
-        userName: existingUser.name,
+        message: `Welcome back ${
+          existingUser.name[0].toUpperCase() +
+          existingUser.name.slice(1).toLowerCase()
+        }`,
       };
     return {
       hasError: true,
       message: "Incorrect login credentials.",
-      userName: null,
     };
   } catch (error) {
     error.status ??= 400;
