@@ -6,7 +6,6 @@ module.exports.userSignup = async (data) => {
     const existingUser = await getUser({
       contactNumber: data.userContactNumber,
     });
-    console.log(existingUser);
     if (existingUser)
       return {
         hasError: true,
@@ -41,10 +40,12 @@ module.exports.userSignin = async (data) => {
       return {
         hasError: false,
         message: "Welcome back",
+        userName: existingUser.name,
       };
     return {
       hasError: true,
       message: "Incorrect login credentials.",
+      userName: null,
     };
   } catch (error) {
     error.status ??= 400;

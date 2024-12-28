@@ -18,6 +18,7 @@ module.exports.signup = async (req, res) => {
 module.exports.signin = async (req, res) => {
   try {
     const { userContactNumber, userPassword } = req.body;
+    console.log(req.body, userContactNumber, userPassword);
     if (!userContactNumber || !userPassword)
       return res
         .status(400)
