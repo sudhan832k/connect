@@ -1,1 +1,7 @@
-<app-header></app-header>
+<!-- <app-header></app-header> -->
+<app-navbar
+  [userName]="loggedInUserName"
+  (selectOption)="onSelect($event)"
+></app-navbar>
+<app-users *ngIf="selectedEvent === 'users'"></app-users>
+<app-friends *ngIf="selectedEvent === 'friends'"></app-friends>
