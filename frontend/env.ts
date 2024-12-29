@@ -7,6 +7,8 @@ export const config = {
     endPoints: {
       signup: '/api/authenticate/signup',
       signin: '/api/authenticate/signin',
+      allusers: '/api/auth/getallusers',
+      allfriends: '/api/auth/getallfriends',
     },
   },
 };

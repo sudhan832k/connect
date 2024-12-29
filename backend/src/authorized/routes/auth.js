@@ -1,6 +1,7 @@
-const { getAllUsers } = require("../controller/auth");
+const { getAllUsers, getAllFriends } = require("../controller/auth");
 
 const authRoutes = require("express").Router();
-authRoutes.post("/getallusers", getAllUsers);
+authRoutes.get("/getallusers", getAllUsers);
+authRoutes.get("/getallfriends", getAllFriends);
 
 module.exports = authRoutes;
