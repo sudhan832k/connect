@@ -14,7 +14,11 @@ module.exports.getAllFriends = async (user) => {
       status: "active",
       _id: { $in: user.friends },
     });
-    return users;
+    const result = users.map((user) => {
+      delete user._doc.password;
+      return user;
+    });
+    return result;
   } catch (error) {
     throw error;
   }

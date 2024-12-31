@@ -16,4 +16,9 @@ export class AuthorizedService {
     const url = config.backend.url + config.backend.endPoints.allfriends;
     return this.http.get(url, { withCredentials: true });
   }
+
+  getUserProfile(): Observable<any> {
+    const url = config.backend.url + config.backend.endPoints.getuserprofile;
+    return this.http.get(url, { withCredentials: true });
+  }
 }

@@ -9,6 +9,7 @@ export const config = {
       signin: '/api/authenticate/signin',
       allusers: '/api/auth/getallusers',
       allfriends: '/api/auth/getallfriends',
+      getuserprofile: '/api/auth/getuserprofile',
     },
   },
 };
