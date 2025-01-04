@@ -1,1 +1,10 @@
-<p>friends works!</p>
+<h1 class="header">Active friends of yours</h1>
+<div class="background">
+  <div *ngFor="let friend of friendsList">
+    <div class="name">
+      {{ friend.name }}
+      <!-- <span class="messageButton">Message</span> -->
+    </div>
+    <div class="messageButton"><a style="cursor: pointer">Message</a></div>
+  </div>
+</div>
