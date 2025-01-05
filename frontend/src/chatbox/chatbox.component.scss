@@ -51,11 +51,15 @@
   padding: 10px;
   width: 450px; /* Fixed width */
   height: 300px; /* Fixed height */
+  //height: 100vh; /* Full height of the viewport */
   background-color: #ecf0f1; /* Light background */
   border: 1px solid #68768a; /* Border around the container */
   border-radius: 8px; /* Rounded corners */
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
   overflow-y: auto; /* Enable vertical scrolling */
+  // flex-direction: column; /* Arrange children in a column */
+  // display: flex;
+  //flex-direction: column-reverse;
 }
 
 /* Messages */
@@ -64,6 +68,10 @@
   padding: 8px 12px;
   border-radius: 12px;
   max-width: 100%;
+
+  // flex: 1; /* Take remaining space */
+  // overflow-y: auto; /* Scroll if messages overflow */
+  // //background-color: #f9f9f9; /* Light background for message area */
 }
 
 .message.received {
@@ -84,7 +92,9 @@
   align-items: center;
   padding: 10px;
   background-color: #fff;
-  border-top: 1px solid #ddd;
+  //border-top: 1px solid #ddd;
+  width: 450px;
+  margin: 10px auto;
 }
 
 /* Input box */

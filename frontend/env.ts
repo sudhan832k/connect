@@ -10,6 +10,7 @@ export const config = {
       allusers: '/api/auth/getallusers',
       allfriends: '/api/auth/getallfriends',
       getuserprofile: '/api/auth/getuserprofile',
+      getmessages: '/api/auth/getmessagebyreceiverid',
     },
   },
 };

@@ -24,17 +24,15 @@
 
 <div class="chat-container">
   <div *ngFor="let message of messageList">
-    <div class="message received">{{ message.message }}</div>
-    <div class="message sent">{{ message.message }}</div>
-    <div class="message received">{{ message.message }}</div>
-    <div class="message sent">{{ message.message }}</div>
+    <div *ngIf="message.isMessageSentByLoggedinUser" class="message sent">
+      {{ message?.message }}
+    </div>
+    <div *ngIf="!message.isMessageSentByLoggedinUser" class="message received">
+      {{ message?.message }}
+    </div>
   </div>
-  <div class="message-input-container">
-    <input
-      type="text"
-      class="message-input"
-      placeholder="Type your message..."
-    />
-    <button class="send-button">Send</button>
-  </div>
+</div>
+<div class="message-input-container">
+  <input type="text" class="message-input" placeholder="Type your message..." />
+  <button class="send-button">Send</button>
 </div>
