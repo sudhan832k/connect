@@ -1,10 +1,15 @@
-<h1 class="header">Active friends of yours</h1>
+<h2 class="header">Active friends of yours</h2>
 <div class="background">
   <div *ngFor="let friend of friendsList">
     <div class="name">
       {{ friend.name }}
       <!-- <span class="messageButton">Message</span> -->
     </div>
-    <div class="messageButton"><a style="cursor: pointer">Message</a></div>
+    <!-- <div class="messageButton"> -->
+    <button class="messageButton" (click)="onMessageClick(friend)">
+      Message
+    </button>
+    <!-- <a style="cursor: pointer" routerLink="/friends/message">Message</a> -->
+    <!-- </div> -->
   </div>
 </div>

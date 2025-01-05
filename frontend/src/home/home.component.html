@@ -4,4 +4,11 @@
   (selectOption)="onSelect($event)"
 ></app-navbar>
 <app-users *ngIf="selectedEvent === 'users'"></app-users>
-<app-friends *ngIf="selectedEvent === 'friends'"></app-friends>
+<app-friends
+  (messageReceiver)="setReceiverDetails($event)"
+  *ngIf="selectedEvent === 'friends'"
+></app-friends>
+<app-chatbox
+  [receiver]="receiverDetails"
+  *ngIf="selectedEvent === 'chatbox'"
+></app-chatbox>

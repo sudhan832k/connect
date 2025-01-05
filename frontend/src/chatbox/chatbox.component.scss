@@ -1,0 +1,124 @@
+.background {
+  width: 450px; /* Fixed width */
+  height: 400px; /* Fixed height */
+  margin: 10px auto;
+  padding: 10px;
+  background-color: #ecf0f1; /* Light background */
+  border: 1px solid #68768a; /* Border around the container */
+  border-radius: 8px; /* Rounded corners */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  //font-family: Arial, sans-serif;
+  overflow-y: auto; /* Enable vertical scrolling */
+}
+
+.header {
+  //padding: 15px;
+  color: #263238;
+  text-align: center;
+  font-family: Helveticas;
+  margin: 5px auto;
+  padding: 5px;
+  font-weight: bold;
+}
+.sentBy {
+  color: #4a5459;
+  font-family: Helveticas;
+  font-size: 16px;
+  padding: 2px;
+  font-weight: bold;
+}
+
+.content {
+  color: #2c3e50;
+  font-family: Helveticas;
+  font-size: 14px;
+  padding: 2px;
+}
+.broken-line {
+  opacity: 0.4; /* Set the element's opacity to 50% */
+  //border-bottom: 2px dashed black; /* Create a broken (dashed) line effect */
+  padding: 2px;
+  width: 450px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.5);
+  text-align: center;
+}
+
+/* Chat container */
+.chat-container {
+  // display: flex;
+  // flex-direction: column;
+  margin: 10px auto;
+  padding: 10px;
+  width: 450px; /* Fixed width */
+  height: 300px; /* Fixed height */
+  background-color: #ecf0f1; /* Light background */
+  border: 1px solid #68768a; /* Border around the container */
+  border-radius: 8px; /* Rounded corners */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  overflow-y: auto; /* Enable vertical scrolling */
+}
+
+/* Messages */
+.message {
+  margin: 10px 0;
+  padding: 8px 12px;
+  border-radius: 12px;
+  max-width: 100%;
+}
+
+.message.received {
+  background-color: #b0bec5;
+  align-self: flex-start;
+  //width: 200px;
+}
+
+.message.sent {
+  background-color: #cfd8dc;
+  align-self: flex-end;
+  text-align: right;
+}
+
+/* Message input container */
+.message-input-container {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  background-color: #fff;
+  border-top: 1px solid #ddd;
+}
+
+/* Input box */
+.message-input {
+  flex: 1; /* Take up available space */
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 20px;
+  outline: none;
+}
+
+.message-input:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 4px rgba(0, 123, 255, 0.5);
+}
+
+/* Send button */
+.send-button {
+  margin-left: 10px;
+  padding: 10px 16px;
+  font-size: 16px;
+  background-color: #546e7a;
+  color: #fff;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.send-button:hover {
+  background-color: #455a64;
+}
+
+.send-button:active {
+  background-color: #003d80;
+}

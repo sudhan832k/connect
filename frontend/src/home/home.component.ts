@@ -5,6 +5,7 @@ import { FriendsComponent } from '../friends/friends.component';
 import { UsersComponent } from '../users/users.component';
 import { CommonModule } from '@angular/common';
 import { AuthorizedService } from '../service/authorized.service';
+import { ChatboxComponent } from '../chatbox/chatbox.component';
 
 @Component({
   selector: 'app-home',
@@ -15,6 +16,7 @@ import { AuthorizedService } from '../service/authorized.service';
     FriendsComponent,
     UsersComponent,
     CommonModule,
+    ChatboxComponent,
   ],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss',
@@ -22,6 +24,7 @@ import { AuthorizedService } from '../service/authorized.service';
 export class HomeComponent {
   loggedInUserName: string = '';
   selectedEvent: string = '';
+  receiverDetails: any = {};
 
   constructor(private authService: AuthorizedService) {
     this.getLoggedinUserProfile();
@@ -36,5 +39,10 @@ export class HomeComponent {
     result.subscribe((res) => {
       this.loggedInUserName = res.result.name;
     });
+  }
+
+  setReceiverDetails(rec: any) {
+    this.receiverDetails = { userId: rec._id, userName: rec.name };
+    this.selectedEvent = 'chatbox';
   }
 }

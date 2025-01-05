@@ -9,5 +9,5 @@ import { config } from '../../env';
   styleUrl: './header.component.scss',
 })
 export class HeaderComponent {
-  applicationName: String = config.app.name;
+  applicationName: string = config.app.name;
 }

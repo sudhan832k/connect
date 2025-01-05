@@ -1,6 +1,7 @@
 import { Component, ViewEncapsulation } from '@angular/core';
 import { AuthorizedService } from '../service/authorized.service';
 import { CommonModule } from '@angular/common';
+import { EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'app-friends',
@@ -20,5 +21,9 @@ export class FriendsComponent {
     res.subscribe((res) => {
       this.friendsList = res.result;
     });
+  }
+  @Output() messageReceiver: EventEmitter<string> = new EventEmitter<string>();
+  onMessageClick(receiverDetails: any) {
+    this.messageReceiver.emit(receiverDetails);
   }
 }

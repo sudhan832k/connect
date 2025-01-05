@@ -1,0 +1,40 @@
+<h2 class="header">Chat with {{ receiver.userName }}</h2>
+<!-- <div class="background">
+  <div *ngFor="let message of messageList">
+    <div class="sentBy">{{ message.sentBy }}</div>
+    <div class="content">{{ message.message }}</div>
+    <div class="broken-line"></div>
+  </div>
+</div> -->
+
+<!-- <div class="chat-container">
+  <div class="message-display">
+    <div class="message received">Hello! How are you?</div>
+    <div class="message sent">I'm good, thanks!</div>
+  </div>
+  <div class="message-input-container">
+    <input
+      type="text"
+      class="message-input"
+      placeholder="Type your message..."
+    />
+    <button class="send-button">Send</button>
+  </div>
+</div> -->
+
+<div class="chat-container">
+  <div *ngFor="let message of messageList">
+    <div class="message received">{{ message.message }}</div>
+    <div class="message sent">{{ message.message }}</div>
+    <div class="message received">{{ message.message }}</div>
+    <div class="message sent">{{ message.message }}</div>
+  </div>
+  <div class="message-input-container">
+    <input
+      type="text"
+      class="message-input"
+      placeholder="Type your message..."
+    />
+    <button class="send-button">Send</button>
+  </div>
+</div>
