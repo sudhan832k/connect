@@ -33,6 +33,13 @@
   </div>
 </div>
 <div class="message-input-container">
-  <input type="text" class="message-input" placeholder="Type your message..." />
-  <button class="send-button">Send</button>
+  <input
+    type="text"
+    [(ngModel)]="message"
+    class="message-input"
+    placeholder="Type your message..."
+  />
+  <button class="send-button" [disabled]="!message" (click)="onClickOnSend()">
+    Send
+  </button>
 </div>

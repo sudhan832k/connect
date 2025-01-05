@@ -27,4 +27,9 @@ export class AuthorizedService {
     const url = config.backend.url + config.backend.endPoints.getmessages;
     return this.http.get(url, { params: queryParams, withCredentials: true });
   }
+
+  postMessage(data: any): Observable<any> {
+    const url = config.backend.url + config.backend.endPoints.sendmessage;
+    return this.http.post(url, data, { withCredentials: true });
+  }
 }

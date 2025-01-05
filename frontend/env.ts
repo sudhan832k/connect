@@ -11,6 +11,7 @@ export const config = {
       allfriends: '/api/auth/getallfriends',
       getuserprofile: '/api/auth/getuserprofile',
       getmessages: '/api/auth/getmessagebyreceiverid',
+      sendmessage: '/api/auth/sendmessage',
     },
   },
 };
