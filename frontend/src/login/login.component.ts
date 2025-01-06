@@ -35,7 +35,6 @@ export class LoginComponent {
         Validators.minLength(8),
       ]),
     });
-    console.log(this.loginForm);
   }
 
   userLogin() {

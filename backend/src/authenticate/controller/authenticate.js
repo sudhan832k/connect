@@ -28,7 +28,7 @@ module.exports.signin = async (req, res) => {
         httpOnly: true, // Accessible only by the web server (not client-side JavaScript)
         secure: false, // Ensures the cookie is sent only over HTTPS
         sameSite: "strict", // Protects against CSRF attacks
-        maxAge: 24 * 60 * 60 * 1000, // 1 day in milliseconds
+        maxAge: 24 * 60 * 60 * 1000, // One day in milliseconds
       });
     res.status(200).send(data.result);
   } catch (error) {

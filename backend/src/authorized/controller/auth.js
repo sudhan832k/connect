@@ -56,7 +56,6 @@ module.exports.getAllMessageByReceiverId = async (req, res) => {
 module.exports.sendMessage = async (req, res) => {
   try {
     const { user } = req.locals;
-    console.log(user);
     const { receiverId, message } = req.body;
     if (!receiverId || !message)
       return res

@@ -1,3 +1,4 @@
+const http = require("http");
 const express = require("express");
 const cors = require("cors");
 const { createMongoConnection } = require("../connections/mongo");
@@ -7,6 +8,7 @@ const authorizedRouter = require("../src/authorized/routes/auth");
 const bodyParser = require("body-parser");
 const cookieParser = require("cookie-parser");
 const { loggedinUserAuth } = require("../middleware/authorized");
+const { setupSocket } = require("./socket");
 
 const app = express();
 app.use("/health", (req, res) => {
@@ -30,10 +32,11 @@ const appRoutes = () => {
   app.use(apiPrefix.authenticate, authenticateRouter);
   app.use(apiPrefix.authorized, loggedinUserAuth, authorizedRouter);
 };
-
 module.exports.init = async () => {
   appMiddleware();
   appRoutes();
   createMongoConnection();
-  return app;
+  const server = http.createServer(app);
+  setupSocket(server);
+  return server;
 };

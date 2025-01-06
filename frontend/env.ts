@@ -2,6 +2,11 @@ export const config = {
   app: {
     name: 'Connect',
   },
+  socket: {
+    nameSpaces: {
+      privatechat: '/chat',
+    },
+  },
   backend: {
     url: 'http://localhost:4000',
     endPoints: {
