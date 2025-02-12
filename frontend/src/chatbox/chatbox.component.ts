@@ -21,8 +21,13 @@ export class ChatboxComponent {
     this.socket.connect();
     this.socket.joinRoom(this.receiver.userId);
     this.socket.responseFromServer().subscribe((res) => {
-      console.log('responseFromServer ngonii', res);
+      this.messageList = res.messages;
     });
+  }
+
+  ngOnDestroy(): void {
+    // Clean up when the component is destroyed
+    this.socket.disconnect();
   }
   getMessages() {
     const response = this.auth.getMessagesByReceiverId({
@@ -34,16 +39,17 @@ export class ChatboxComponent {
   }
 
   onClickOnSend() {
-    const response = this.auth.postMessage({
-      receiverId: this.receiver.userId,
-      message: this.message,
-    });
+    // const response = this.auth.postMessage({
+    //   receiverId: this.receiver.userId,
+    //   message: this.message,
+    // });
     this.socket.sendMessage(this.receiver.userId, this.message);
-    console.log(this.receiver, response);
-    response.subscribe((res) => {
-      this.messageList = res.result;
-      this.getMessages();
-      this.message = '';
-    });
+    this.message = '';
+    // console.log(this.receiver, response);
+    // response.subscribe((res) => {
+    //   this.messageList = res.result;
+    //   this.getMessages();
+    //   this.message = '';
+    // });
   }
 }

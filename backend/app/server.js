@@ -8,7 +8,7 @@ const authorizedRouter = require("../src/authorized/routes/auth");
 const bodyParser = require("body-parser");
 const cookieParser = require("cookie-parser");
 const { loggedinUserAuth } = require("../middleware/authorized");
-const { setupSocket } = require("./socket");
+const { setupSocket } = require("../connections/socket");
 
 const app = express();
 app.use("/health", (req, res) => {

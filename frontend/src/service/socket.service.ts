@@ -37,12 +37,17 @@ export class SocketService {
     this.socket.emit('messageFromClient', { receiverId, message });
   }
 
-  responseFromServer(): Observable<{ senderId: string; message: string }> {
+  responseFromServer(): Observable<{ messages: any }> {
     return new Observable((observer) => {
       this.socket.on('responseFromServer', (data) => {
         console.log('onMessage', data);
         observer.next(data); // Emit the received message to the observer
       });
     });
+  }
+
+  disconnect(): void {
+    this.socket.disconnect();
+    console.log('Disconnected from server');
   }
 }
