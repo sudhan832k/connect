@@ -3,7 +3,7 @@ const config = {
     port: 4000,
   },
   mongo: {
-    url: "mongodb://localhost:27017/",
+    url: "mongodb://host.docker.internal:27017/",
     dataBase: "connect-main",
   },
 };

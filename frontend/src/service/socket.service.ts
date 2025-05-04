@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { io, Socket } from 'socket.io-client';
 import { Observable } from 'rxjs';
-import { config } from '../../env';
+import { config } from '../env';
 
 @Injectable({
   providedIn: 'root',
